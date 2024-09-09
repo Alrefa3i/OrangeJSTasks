@@ -1,0 +1,24 @@
+Task One
+
+1)Write a JavaScript program that declares three variables: firstName, lastName, and age. Assign values to them and then display the values using console.log().
+
+2)
+  Declare a var variable named name and assign your name to it. Then, change the value of name to something else.
+  Declare a let variable named age and assign your age. Try to change its value later in the code.
+  Declare a const variable named country and assign your country name to it. Try to change its value and observe what happens.
+
+3) Use Number(), String(), and Boolean() to explicitly convert between types.
+Part #2:
+1)Ask the user to enter 3 inputs, the first one is for operation and the others to enter 2 numbers, if the operation is "+" then add the input two number if the operation is "-" then subtract the input by two number if the operation is "*" then multiply the input by two number if the operation is "/" then divide the input by two number the result should appear in console.log, HTML page should show the operation and the two numbers.
+
+
+
+2) Marks program:
+If the mark is less than 50 the mark will be FAIL, if the mark is between 50 and 59 the mark will be D, if the mark is between 60 and 69 the mark will be C, if the mark is between 70 and 79 the mark will be B, if the mark is between 80 and 89 the mark will be A, if the mark is between 90 and 100 the mark will be A+ 
+
+Note: you should declare the initial value to mark and give it any number you want to ensure that your code is right by using document. write()
+
+3) You should use any equation that contain a π bye symbol for using constant variable.
+
+4) Write an if statement to display "Hello World" if x is greater than y, otherwise alert "Goodbye".
+y and x depend on prompt the result should appear in alert,console.log, HTML page
