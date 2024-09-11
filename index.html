@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Presentation</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      .hero {
+        background-color: #007bff;
+        color: white;
+        padding: 60px 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Learning Presentation</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Topics</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero bg-primary text-white text-center py-5 d-flex justifly-content-center"
+    >
+      <div class="container">
+        <h1 class="display-4">
+          Welcome to the
+          <span class="text-dark fw-bold" style="font-weight: bold"
+            >Orange Coding School</span
+          >
+        </h1>
+        <p class="lead">
+          Learn the latest web technologies in a fun and interactive way.
+        </p>
+        <a href="#topics" class="btn btn-light btn-lg">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Main Content: Topics Section -->
+    <section class="topics py-5 bg-light" id="topics">
+      <div class="container">
+        <h2 class="text-center">Topics Covered</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">ES5 Vs ES6</h5>
+                <p class="card-text">
+                  Comparison between ES5 and ES6 versions of JavaScript.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">JavaScript Fundamentals</h5>
+                <p class="card-text">
+                  Basic concepts of JavaScript scripting language.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">Template Literals</h5>
+                <p class="card-text">
+                  Learn how to use template literals in JavaScript.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- section for each topic -->
+    <section class="topic-1 py-5">
+      <div class="container">
+        <h2 class="text-center">ES5 Vs ES6</h2>
+        <p class="lead text-center">
+          ES5 (ECMAScript 5) and ES6 (ECMAScript 6, also known as ES2015) are
+          two versions of JavaScript that introduced various features and
+          improvements to the language.
+        </p>
+        <ul>
+          <li class="fs-3">
+            <strong> ES5 : </strong> Function declarations are done using the
+            traditional function syntax.
+            <br />
+            <p class="">
+              javascript Copy code <br />
+              function sayHello(name) {<br />
+              return "Hello, " + name; }
+            </p>
+          </li>
+          <li class="fs-3">
+            <strong>ES6:</strong> Introduces arrow functions, which offer a
+            shorter syntax and lexical this binding. javascript
+
+            <br />
+            <p>
+              const sayHello = (name) => {<br />
+              return "Hello, " + name; }
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="topic-2 py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center">JavaScript Fundamentals</h2>
+        <p class="lead text-center">
+          JavaScript is a high-level, interpreted Scripting language that
+          conforms to the ECMAScript specification. It is a versatile language
+          used for web development, server-side development, and mobile
+          application development.
+        </p>
+        <!-- list of main details point -->
+        <ul>
+          <li>
+            <strong>DOM :</strong>
+            <p>
+              The Document Object Model (DOM) is a programming interface for web
+              documents. It represents the structure of a document as a tree of
+              nodes.
+              <a href="./pic_htmltree.gif">DOM Image</a>
+            </p>
+          </li>
+          <li>
+            <strong
+              >Let Var Const :
+              <!-- simple description -->
+            </strong>
+            <p>
+              let, var, and const are used to declare variables in JavaScript.
+              <br>
+              <pre>
+                if (true) {
+                    let greeting = "Hello!";
+                    console.log(greeting);  // Output: "Hello!"
+                }
+                console.log(greeting);  // Output: Uncaught ReferenceError: greeting is not defined
+
+              </pre>
+            </p>
+          </li>
+          <li>
+            <strong
+              >Arrow Functions :
+              <!-- simple description -->
+            </strong>
+            <p>
+              Arrow functions are a more concise way to write function
+              expressions in JavaScript.
+            </p>
+            <br />
+            <pre>
+                    const sayHello = (name) => {
+                        return "Hello, " + name;
+                    }
+                </pre
+            >
+          </li>
+          <li>Point 3</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="topic-3 py-5">
+      <div class="container">
+        <h2 class="text-center">Template Literals</h2>
+        <p class="lead text-center">
+          Template strings (also known as template literals) in JavaScript are a
+          more powerful and flexible way to work with strings. They allow for
+          easier creation of multi-line strings and embedding of expressions
+          within string literals.
+        </p>
+        <!-- list of main details point -->
+        <ul>
+          <li class="fs-3">
+            <strong>back-ticks (``) :</strong> rather than the quotes ("") to
+            define a string
+
+            <br />
+            <p>let text = `Hello World!`;</p>
+          </li>
+          <li>
+            <strong>Quotes Inside Strings :</strong> Template Strings allow both
+            single and double quotes inside a string
+            <br />
+            <p>let text = `He's often called "Johnny"`;</p>
+          </li>
+          <li>
+            <strong>Multiline Strings :</strong> allow multiline strings <br />
+            <pre>
+ 
+                let text =
+                `The quick
+                brown fox
+                jumps over
+                the lazy dog`;
+        </pre
+            >
+          </li>
+
+          <li>
+            <strong>Variable Substitutions :</strong>allow variables in strings
+            <br />
+            <pre>
+                let firstName = "John";
+                let lastName = "Doe";
+
+                let text = `Welcome ${firstName}, ${lastName}!`;</pre
+            >
+          </li>
+          <li>
+            <strong>Expression Substitution :</strong> allow expressions in
+            strings <br />
+            <pre>
+                let x = 10;
+                let y = 20;
+
+                let result = `The sum of ${x} and ${y} is ${x + y}`;</pre
+            >
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <script>
+          
+
+    </script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
