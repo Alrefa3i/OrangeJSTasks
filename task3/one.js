@@ -1,27 +1,13 @@
 /*
-one 
-two 
-three
-four
-five
-six
-seven
-eight
-nine
-ten
-eleven
-twelve
-thirteen
-fourteen
-fifteen
-sixteen
-seventeen
-eighteen
-nineteen
-twenty
-twenty-one
-twenty-two
-twenty-three
-twenty-four
-twenty-five
+1
+Correct the syntax error
+ [ 1,7  9  45, ]
+
+ ["Str" "alex","moh"
+
+ 'the','fox' 'over' lazy, 'dog',  ]
+
 */
+
+[1, 7, 9, 45]
+["Str", "alex", "moh", "the", "fox", "over", lazy, "dog"];
