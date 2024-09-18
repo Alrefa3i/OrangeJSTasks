@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#3</title>
+</head>
+<body>
+    <!-- 3- You should allow the user to enter a password. When it is too short, it should indicate that it is too short in red, as shown. When the password does not match the confirmation, it should indicate that they do not match. in js only -->
+
+    <input type="password" id="password" onkeyup="checkPassword()" placeholder="Enter password">
+    <input type="password" id="confirm" onkeyup="checkPassword()" placeholder="Confirm password">
+    <p id="message" style="color: red;"></p>
+
+    <script>
+        function checkPassword() {
+            let password = document.getElementById("password").value;
+            let confirm = document.getElementById("confirm").value;
+            let message = document.getElementById("message");
+
+            if (password.length < 8) {
+                message.innerText = "Password is too short";
+            } else if (password !== confirm) {
+                message.innerText = "Passwords do not match";
+            } else {
+                message.innerText = "";
+            }
+        }
+
+
+
+
+
+        
+    </script>
+    
+</body>
+</html>

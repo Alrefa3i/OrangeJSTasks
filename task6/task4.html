@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h3>
+        What is lorem ipsum?
+        <button onclick="toggleContent('content1')">Show</button>
+      </h3>
+      <div id="content1" class="content">
+        Lorem ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </div>
+    </div>
+
+    <div>
+      <h3>
+        Why do we use it?
+        <button onclick="toggleContent('content2')">Show</button>
+      </h3>
+      <div id="content2" class="content">
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page.
+      </div>
+    </div>
+    <script>
+      function toggleContent(contentId) {
+        const content = document.getElementById(contentId);
+        const button = content.previousElementSibling.querySelector("button");
+        if (content.style.display === "none") {
+          content.style.display = "block";
+          button.textContent = "Hide";
+        } else {
+          content.style.display = "none";
+          button.textContent = "Show";
+        }
+      }
+    </script>
+  </body>
+</html>

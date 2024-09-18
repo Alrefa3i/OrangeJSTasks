@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 2- In this dropdown menu, you should add a set of country names. When a specific country is selected, its corresponding flag should be displayed. use js -->
+    <select id="countries" onchange="displayFlag()">
+        <option value="0">Select a country</option>
+        <option value="1">Pakistan</option>
+        <option value="2">India</option>
+        <option value="3">USA</option>
+        <option value="4">UK</option>
+        <option value="5">UAE</option>
+    </select>
+    <img id="flag" src="" alt="flag" style="display: none; width: 100px; height: 100px;">
+
+
+    <script>
+        function displayFlag() {
+            let country = document.getElementById("countries").value;
+            let flag = document.getElementById("flag");
+
+            switch (country) {
+                case "1":
+                    flag.src = "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg";
+                    flag.style.display = "block";
+                    break;
+                case "2":
+                    flag.src = "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg";
+                    flag.style.display = "block";
+                    break;
+                case "3":
+                    flag.src = "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg";
+                    flag.style.display = "block";
+                    break;
+                case "4":
+                    flag.src = "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg";
+                    flag.style.display = "block";
+                    break;
+                case "5":
+                    flag.src = "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg";
+                    flag.style.display = "block";
+                    break;
+                default:
+                    flag.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

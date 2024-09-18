@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 5-When typing any text inside the box, you should be able to edit it, such as changing the font type, making it bold, adding an underline, and adjusting the font size -->
+
+    <div>
+        <div>
+            <select name="fonts" id="fonts">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+            <input type="number" name="fontSize" id="fontSize" placeholder="Font Size">
+            <label for="Italic">Italic</label>
+            <input type="checkbox" name="Italic" id="Italic" value="Italic">
+            <label for="bold">bold</label>
+            <input type="checkbox" name="bold" id="bold" value="bold">
+            <label for="underline">underline</label>
+            <input type="checkbox" name="underline" id="underline" value="underline">
+        </div>
+        <textarea name="text" id="text" cols="30" rows="10" onkeyup="editText()"></textarea>
+    </div>
+
+     <script>
+        function editText() {
+            let text = document.getElementById("text");
+            let fonts = document.getElementById("fonts").value;
+            let fontSize = document.getElementById("fontSize").value;
+            let Italic = document.getElementById("Italic").checked;
+            let bold = document.getElementById("bold").checked;
+            let underline = document.getElementById("underline").checked;
+
+            text.style.fontFamily = fonts;
+            text.style.fontSize = fontSize + "px";
+            text.style.fontStyle = Italic ? "italic" : "normal";
+            text.style.fontWeight = bold ? "bold" : "normal";
+            text.style.textDecoration = underline ? "underline" : "none";
+        }
+    </script>
+</body>
+</html>
