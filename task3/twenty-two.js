@@ -32,6 +32,6 @@ function evenNumberEvenIndex(arr) {
         }
         i += 2;
     }
-    return newArr;
+    return newArr; 
 }
 console.log(evenNumberEvenIndex([5, 2, 2, 1, 8, 66, 55, 77, 34, 9, 55, 1])); // [2, 8, 34]

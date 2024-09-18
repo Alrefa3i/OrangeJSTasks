@@ -14,6 +14,7 @@ Part #2:
 
 
 2) Marks program:
+
 If the mark is less than 50 the mark will be FAIL, if the mark is between 50 and 59 the mark will be D, if the mark is between 60 and 69 the mark will be C, if the mark is between 70 and 79 the mark will be B, if the mark is between 80 and 89 the mark will be A, if the mark is between 90 and 100 the mark will be A+ 
 
 Note: you should declare the initial value to mark and give it any number you want to ensure that your code is right by using document. write()
