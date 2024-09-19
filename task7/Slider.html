@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 100%;
+            /* Make sure it transitions smoothly between individual slides */
+        }
+
+        .slide {
+            min-width: 100%;
+            /* Each slide takes up the full width */
+            height: 400px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide" style="background-image: url('https://via.placeholder.com/800x400/FF5733');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/800x400/33FF57');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/800x400/3357FF');"></div>
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function changeSlide(step) {
+            showSlide(currentSlide + step);
+        }
+
+        function startSlideShow() {
+            setInterval(() => {
+                changeSlide(1); 
+            }, 3000); 
+        }
+
+        // Start the slideshow automatically when the page loads
+        window.onload = startSlideShow;
+    </script>
+
+</body>
+
+</html>
