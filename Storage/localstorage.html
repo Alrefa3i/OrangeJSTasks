@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage & JSON Conversion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .example {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Local Storage </h1>
+
+        <div class="example">
+            <h3>Example 1: Store and Retrieve Data in Local Storage</h3>
+            <p>
+                Click the button to store and retrieve the name <strong>"Ahmad"</strong> in Local Storage.
+            </p>
+            <button onclick="storeAndRetrieve()">Store & Retrieve</button>
+            <div class="output" id="output1"></div>
+        </div>
+
+        <div class="example">
+            <h3>Example 2: Convert JSON to JavaScript Object</h3>
+            <p>
+                Click the button to convert a JSON string to a JavaScript object and display its properties.
+            </p>
+            <button onclick="convertJSONToObject()">Convert JSON to Object</button>
+            <div class="output" id="output2"></div>
+        </div>
+
+        <div class="example">
+            <h3>Example 3: Convert JavaScript Object to JSON</h3>
+            <p>
+                Click the button to convert a JavaScript object to a JSON string.
+            </p>
+            <button onclick="convertObjectToJSON()">Convert Object to JSON</button>
+            <div class="output" id="output3"></div>
+        </div>
+
+        <div class="example">
+            <h3>Example 4: Store JavaScript Object as JSON in Local Storage</h3>
+            <p>
+                Click the button to store a JavaScript object as JSON in Local Storage and retrieve it.
+            </p>
+            <button onclick="storeObjectAsJSON()">Store Object as JSON</button>
+            <div class="output" id="output4"></div>
+        </div>
+    </div>
+
+    <script>
+        function storeAndRetrieve() {
+
+            
+            localStorage.setItem("name", "Ahmad");
+
+            
+
+            let name = localStorage.getItem("name");
+
+            document.getElementById("output1").textContent = `Stored name: ${name}`;
+        }
+
+        function convertJSONToObject() {
+
+            let jsonString = '{"name": "Ahmad", "age": 25}';
+
+            console.log(jsonString);
+
+            let user = JSON.parse(jsonString);
+
+            console.log(user);
+
+            document.getElementById("output2").textContent = `Name: ${user.name}, Age: ${user.age}`;
+        }
+
+        function convertObjectToJSON() {
+
+            let user = { name: "Ahmad", age: 25 };
+
+            user = JSON.stringify(user);
+
+            localStorage.setItem("user", user);
+
+        }
+
+        function storeObjectAsJSON() {
+
+            let user = { name: "Ahmad", age: 25 };
+
+            localStorage.setItem("user", JSON.stringify(user));
+
+            let storedUser = JSON.parse(localStorage.getItem("user"));
+
+            document.getElementById("output4").textContent = `Stored User: Name - ${storedUser.name}, Age - ${storedUser.age}`;
+        }
+
+    </script>
+</body>
+
+</html>
