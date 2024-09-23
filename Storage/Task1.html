@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #218838;
+        }
+
+        .notification {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .notification.error {
+            background-color: #dc3545;
+        }
+
+        .notification.success {
+            background-color: #28a745;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container registerBox">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Brief Description</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="major">Major</label>
+                <input type="text" id="major" name="major">
+            </div>
+            <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" id="university" name="university">
+            </div>
+            <div class="form-group">
+                <label for="languages">Programming Languages (select at least 3)</label>
+                <div>
+                    <input type="checkbox" id="language1" name="languages" value="JavaScript">
+                    <label for="language1">JavaScript</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="language2" name="languages" value="Python">
+                    <label for="language2">Python</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="language3" name="languages" value="Java">
+                    <label for="language3">Java</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="language4" name="languages" value="C#">
+                    <label for="language4">C#</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="language5" name="languages" value="Ruby">
+                    <label for="language5">Ruby</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="register">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="HomeBox container">
+        <h2>Home</h2>
+        <div id="info">
+            <h3>Information</h3>
+            <p>First Name: <span id="infoFirstName"></span></p>
+            <p>Last Name: <span id="infoLastName"></span></p>
+            <p>Age: <span id="infoAge"></span></p>
+            <p>Gender: <span id="infoGender"></span></p>
+            <p>Brief Description: <span id="infoDescription"></span></p>
+            <p>Major: <span id="infoMajor"></span></p>
+            <p>University: <span id="infoUniversity"></span></p>
+            <p>Languages: <span id="infoLanguages"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.HomeBox').style.display = 'none';
+
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const description = document.getElementById('description').value;
+            const major = document.getElementById('major').value;
+            const university = document.getElementById('university').value;
+            const languages = Array.from(document.querySelectorAll('input[name="languages"]:checked')).map(checkbox => checkbox.value);
+
+            if (languages.length < 3) {
+                notify('Please select at least 3 programming languages', 'error');
+                return;
+            }
+
+            if ([firstName, lastName, age, gender, description, major, university].includes('')) {
+                notify('Please fill all fields', 'error');
+            } else {
+                notify('Registration successful', 'success');
+
+                // Display the information on the Home screen
+                document.getElementById('infoFirstName').innerText = firstName;
+                document.getElementById('infoLastName').innerText = lastName;
+                document.getElementById('infoAge').innerText = age;
+                document.getElementById('infoGender').innerText = gender;
+                document.getElementById('infoDescription').innerText = description;
+                document.getElementById('infoMajor').innerText = major;
+                document.getElementById('infoUniversity').innerText = university;
+                document.getElementById('infoLanguages').innerText = languages.join(', ');
+
+                document.querySelector('.registerBox').style.display = 'none';
+                document.querySelector('.HomeBox').style.display = 'block';
+            }
+        });
+
+        function notify(message, type) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification', type);
+            notification.innerText = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+    </script>
+</body>
+
+</html>
