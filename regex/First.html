@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+
+        .form-group button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #218838;
+        }
+
+        .notification {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .notification.error {
+            background-color: #dc3545;
+        }
+
+        .notification.success {
+            background-color: #28a745;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container registerBox">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <!-- add phone number -->
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <button type="submit" id="register">Register</button>
+            </div>
+            <h4 style="cursor: pointer;">
+                Already have an account? Login
+            </h4>
+        </form>
+    </div>
+
+
+
+
+    <!-- make a notify -->
+    <script>
+        function notify(message, type) {
+            const notification = document.createElement('div');
+            notification.classList.add('notification');
+            notification.classList.add(type);
+            notification.innerText = message;
+            document.body.appendChild(notification);
+            setTimeout(function () {
+                notification.remove();
+            }, 3000);
+        }
+
+
+    </script>
+    <script>
+
+
+
+        const validateEmail = (email) => {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        const validatePassword = (password) => {
+            const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            return re.test(password);
+        }
+
+        const validatePhone = (phone) => {
+            const re = /^\d{10}$/;
+            return re.test(phone);
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const phone = document.getElementById('phone').value;
+
+            let data = [
+                firstName,
+                lastName,
+                email,
+                password,
+                phone
+            ];
+
+            if (data.includes('')) {
+                notify('Please fill all fields', 'error');
+            } else if (!validateEmail(email)) {
+                notify('Please enter a valid email', 'error');
+            } else if (!validatePassword(password)) {
+                notify('Password must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters', 'error');
+            } else if (!validatePhone(phone)) {
+                notify('Phone number must be 10 digits', 'error');
+            } else {
+               
+
+                notify('Registration successful', 'success');
+
+            }
+
+        });
+
+
+
+    </script>
+</body>
+
+
+</html>
