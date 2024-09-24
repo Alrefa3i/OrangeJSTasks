@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+
+<style>
+    .one,
+    .two,
+    .three {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        width: 50%;
+        align-items: center;
+    }
+
+    .one div,
+    .two div,
+    .three div {
+        padding: 10px;
+    }
+
+    .name {
+        background-color: rgba(22, 154, 219, 0.333);
+    }
+
+    .email {
+        background-color: rgba(224, 0, 0);
+    }
+
+    .mobile {
+        background-color: rgb(240, 209, 34);
+    }
+
+    .two div {
+        width: 30%;
+        display: none;
+    }
+</style>
+
+<body>
+
+    <div class="one">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text">
+
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email">
+
+        </div>
+        <div>
+            <label for="mobile">Mobile</label>
+            <input id="mobile" type="text">
+
+        </div>
+        <div>
+            <button type="button"> Add </button>
+        </div>
+    </div>
+    <hr>
+    <div class="two">
+        <div class="name">
+            <h3></h3>
+        </div>
+        <div class="email">
+            <h3></h3>
+        </div>
+        <div class="mobile">
+            <h3></h3>
+        </div>
+
+    </div>
+    <hr>
+    <div class="three">
+        <!-- table -->
+        <div class="">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                    </tr>
+                </thead>
+                <tbody class="table">
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="mailto:" id="email">
+                               
+                            </a>
+                        </td>
+                        <td>
+                            <a href="tel:" id="mobile">
+                            
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <script>
+           
+            const table = document.querySelector('.table');
+            const h3 = document.querySelectorAll('h3');
+            const add = document.querySelector('button');
+
+            add.addEventListener('click', () => {
+
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const mobile = document.getElementById('mobile');
+
+                users = JSON.parse(localStorage.getItem('users')) || [];
+                
+                users.push({
+                    name: name.value,
+                    email: email.value,
+                    mobile: mobile.value
+                });
+
+                localStorage.setItem('users', JSON.stringify(users));
+
+
+                table.innerHTML += `
+                <tr>
+                    <td>${name.value}</td>
+                    <td>
+                        <a href="mailto:${email.value}" id="email">
+                            ${email.value}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="tel:${mobile.value}" id="mobile">
+                            ${mobile.value}
+                        </a>
+                    </td>
+                </tr>
+                `;
+                
+                h3[0].textContent = name.value;
+                h3[1].textContent = email.value;
+                h3[2].textContent = mobile.value;
+                document.querySelectorAll('.two div').forEach(div => {
+                    div.style.display = 'block';
+                });
+
+
+
+                name.value = '';
+                email.value = '';
+                mobile.value = '';
+            });
+
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const users = JSON.parse(localStorage.getItem('users') ) || [];
+                if (users) {
+                    users.forEach(user => {
+                        table.innerHTML += `
+                        <tr>
+                            <td>${user.name}</td>
+                            <td>
+                                <a href="mailto:${user.email}" id="email">
+                                    ${user.email}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="tel:${user.mobile}" id="mobile">
+                                    ${user.mobile}
+                                </a>
+                            </td>
+                        </tr>
+                        `;
+                    });
+                }
+            });
+        </script>
+
+</body>
+
+</html>
